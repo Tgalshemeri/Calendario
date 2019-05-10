@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+
+
+<com.treaf.calendario.Calendario android:layout_width="wrap_content"
+                                 android:layout_height="wrap_content"
+                                 android:id="@+id/custom"
+                                 />
+<View android:layout_width="match_parent" android:layout_height="1dp"
+      android:layout_below="@+id/custom"
+      android:id="@+id/seprator"
+android:background="@color/colorGrey"/>
+    <android.support.v7.widget.RecyclerView android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+    android:id="@+id/events_Recycler"
+                                            android:layout_below="@+id/seprator"
+                                            xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+    android:orientation="vertical"/>
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:id="@+id/eventsInfo" android:visibility="gone" android:layout_centerInParent="true"
+              android:gravity="center"
+    android:layout_below="@+id/seprator"/>
+    <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+    android:layout_below="@+id/events_Recycler"
+            android:id="@+id/btnAdd"
+    android:text="ADD"/>
+
+</RelativeLayout>
