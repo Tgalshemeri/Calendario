@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import com.treaf.calendario.Calendario
 
 
@@ -24,17 +25,19 @@ class MainActivity : FragmentActivity() , Calendario.OnDateSelectedListener {
         } else {
             eventsInfo.visibility = View.GONE
             recyclerView.visibility = View.VISIBLE
-            val eventAdapter = eventsAdapter(this , eventsArray , timeArray)
-            recyclerView.adapter = eventAdapter
-            recyclerView.addItemDecoration(DividerItemDecoration(this , DividerItemDecoration.VERTICAL))
-
-        //Removing Events By Clicking On The RecycleView
-            recyclerView.addOnItemClickListener(object : OnItemClickListener {
-                override fun onItemClicked(position: Int, view: View) {
+            val eventAdapter = eventsAdapter(this , eventsArray , timeArray , object : ItemClick {
+                override fun getItemClick(position: Int) {
                     customCalendario.removeEvent(eventsArray[position] , day, month, year)
+                    recyclerView.adapter?.notifyDataSetChanged()
+                    Toast.makeText(this@MainActivity , "Successfully" , Toast.LENGTH_SHORT).show()
+                    startActivity(intent)
                 }
 
             })
+            recyclerView.adapter = eventAdapter
+            recyclerView.addItemDecoration(DividerItemDecoration(this , DividerItemDecoration.VERTICAL))
+
+
         }
 
 
@@ -65,24 +68,5 @@ class MainActivity : FragmentActivity() , Calendario.OnDateSelectedListener {
     }
 
 
-    //Removing Events By Clicking On The RecycleView
-    interface OnItemClickListener {
-        fun onItemClicked(position: Int, view: View)
-    }
-    fun RecyclerView.addOnItemClickListener(onClickListener: OnItemClickListener) {
-        this.addOnChildAttachStateChangeListener(object : RecyclerView.OnChildAttachStateChangeListener {
-            override fun onChildViewDetachedFromWindow(p0: View) {
-                p0?.setOnClickListener(null)
-            }
-
-            override fun onChildViewAttachedToWindow(p0: View) {
-                p0?.setOnClickListener {
-                    val holder = getChildViewHolder(p0)
-                    onClickListener.onItemClicked(holder.adapterPosition, p0)
-                }
-            }
-
-        })
-    }
 
 }

@@ -15,9 +15,19 @@
 
     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
               android:layout_alignParentLeft="true"
+              android:text="Title"
     android:id="@+id/textTitle"/>
+    <ImageView android:layout_height="30dp" android:layout_width="30dp"
+            android:layout_alignRight="@+id/textTitle"
+            android:layout_alignLeft="@+id/textTime"
+               android:src="@drawable/baseline_close_black_18"
+            android:background="?android:attr/selectableItemBackground"
+            android:layout_alignParentRight="true"
+               android:id="@+id/delBtn"
+            android:layout_marginLeft="-51dp" android:layout_marginRight="51dp"/>
     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
               android:layout_alignParentRight="true"
+              android:text="Time"
               android:id="@+id/textTime"/>
 </RelativeLayout>
 </android.support.v7.widget.CardView>

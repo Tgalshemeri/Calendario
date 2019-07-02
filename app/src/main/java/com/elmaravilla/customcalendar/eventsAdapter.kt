@@ -6,9 +6,12 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 
-class eventsAdapter(val context: Context , val eventsArray:ArrayList<String>, val timeArrayList: ArrayList<String>) : RecyclerView.Adapter<eventsAdapter.ViewHolder>() {
+class eventsAdapter(val context: Context , val eventsArray:ArrayList<String>, val timeArrayList: ArrayList<String> , clicked:ItemClick) : RecyclerView.Adapter<eventsAdapter.ViewHolder>() {
+
+   var clicked = clicked
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.event_item , p0 , false)
         return ViewHolder(view)
@@ -25,12 +28,16 @@ class eventsAdapter(val context: Context , val eventsArray:ArrayList<String>, va
         p0.timeText.text = timeArrayList[p1]
         p0.timeText.textSize = 18f
         p0.timeText.setTextColor(Color.BLACK)
+        p0.delBtn.setOnClickListener {
+            clicked.getItemClick(p1)
+        }
     }
 
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val eventText = itemView.findViewById<TextView>(R.id.textTitle)
         val timeText = itemView.findViewById<TextView>(R.id.textTime)
+        val delBtn = itemView.findViewById<ImageView>(R.id.delBtn)
     }
 
 
