@@ -1,6 +1,5 @@
 package com.elmaravilla.customcalendar
 
-import android.app.Activity
 import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.app.FragmentActivity
@@ -15,7 +14,7 @@ import com.treaf.calendario.Calendario
 class MainActivity : FragmentActivity() , Calendario.OnDateSelectedListener {
     override fun onDateSelected(day: Int, month: Int, year: Int) {
         val eventsArray = customCalendario.getEventsByDate(day, month, year).getEvent
-        val timeArray = customCalendario.getEventsByDate(day, month, year).getTime
+        val timeArray   = customCalendario.getEventsByDate(day, month, year).getTime
         if (eventsArray.isEmpty()){
             recyclerView.visibility = View.GONE
             eventsInfo.visibility = View.VISIBLE
@@ -28,10 +27,17 @@ class MainActivity : FragmentActivity() , Calendario.OnDateSelectedListener {
             val eventAdapter = eventsAdapter(this , eventsArray , timeArray)
             recyclerView.adapter = eventAdapter
             recyclerView.addItemDecoration(DividerItemDecoration(this , DividerItemDecoration.VERTICAL))
+
+        //Removing Events By Clicking On The RecycleView
+            recyclerView.addOnItemClickListener(object : OnItemClickListener {
+                override fun onItemClicked(position: Int, view: View) {
+                    customCalendario.removeEvent(eventsArray[position] , day, month, year)
+                }
+
+            })
         }
 
     }
-
     private lateinit var customCalendario: Calendario
     lateinit var recyclerView: RecyclerView
     lateinit var eventsInfo:TextView
@@ -54,5 +60,28 @@ class MainActivity : FragmentActivity() , Calendario.OnDateSelectedListener {
             newFragment.show(ft, "dialog")
         }
 
+
     }
+
+
+    //Removing Events By Clicking On The RecycleView
+    interface OnItemClickListener {
+        fun onItemClicked(position: Int, view: View)
+    }
+    fun RecyclerView.addOnItemClickListener(onClickListener: OnItemClickListener) {
+        this.addOnChildAttachStateChangeListener(object : RecyclerView.OnChildAttachStateChangeListener {
+            override fun onChildViewDetachedFromWindow(p0: View) {
+                p0?.setOnClickListener(null)
+            }
+
+            override fun onChildViewAttachedToWindow(p0: View) {
+                p0?.setOnClickListener {
+                    val holder = getChildViewHolder(p0)
+                    onClickListener.onItemClicked(holder.adapterPosition, p0)
+                }
+            }
+
+        })
+    }
+
 }
