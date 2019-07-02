@@ -167,14 +167,20 @@ class Calendario(context: Context?, attrs: AttributeSet? ) : FrameLayout(context
         this.eventRes = resId
         updateCalendar()
     }
-    fun removeEvent(event: String , day: Int , month: Int , year: Int){
+    fun removeEvent(event: String , day: Int , month: Int , year: Int , time:String){
         val db = sqliteDB(context)
         if (!db.dbIsEmpty()){
-            db.removeEvent(event,day,month,year , null)
+            db.removeEvent(event,day,month,year, time)
         }
         updateCalendar()
     }
-
+    fun removeEvent(event: String , day: Int , month: Int , year: Int){
+        val db = sqliteDB(context)
+        if (!db.dbIsEmpty()){
+            db.removeEvent(event,day,month,year)
+        }
+        updateCalendar()
+    }
     fun hideEventIndicator(value:Boolean){
         if(value){
             this.eventRes = null

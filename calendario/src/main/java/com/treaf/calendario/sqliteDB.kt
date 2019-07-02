@@ -40,7 +40,10 @@ class sqliteDB(context: Context?) : SQLiteOpenHelper(context , "events.db" , nul
     fun removeEvent(event: String, day: Int, month: Int, year: Int, time: String?) {
         val db = this.writableDatabase as SQLiteDatabase
         db.execSQL("delete from calendar where event = '$event' and day = '$day' and month = '$month' and year = '$year' and time = '$time' ")
-
+    }
+    fun removeEvent(event: String, day: Int, month: Int, year: Int) {
+        val db = this.writableDatabase as SQLiteDatabase
+        db.execSQL("delete from calendar where event = '$event' and day = '$day' and month = '$month' and year = '$year' ")
     }
 
     fun getEventByDay(day: Int) : Events{
