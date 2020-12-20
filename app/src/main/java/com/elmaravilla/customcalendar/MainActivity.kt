@@ -2,13 +2,14 @@ package com.elmaravilla.customcalendar
 
 import android.graphics.Color
 import android.os.Bundle
-import android.support.v4.app.FragmentActivity
-import android.support.v7.widget.DividerItemDecoration
-import android.support.v7.widget.RecyclerView
+import androidx.fragment.app.FragmentActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+//import androidx.fragment.app.FragmentActivity
 import com.treaf.calendario.Calendario
 
 

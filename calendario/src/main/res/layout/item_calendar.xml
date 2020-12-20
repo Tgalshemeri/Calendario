@@ -25,7 +25,7 @@
                 android:id="@+id/btnNext"/>
 
     </LinearLayout>
-    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/colorGrey"
+    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#bbbbbb"
     />
     <LinearLayout
             android:id="@+id/calendar_header"
@@ -41,7 +41,7 @@
         />
 
     </LinearLayout>
-    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/colorGrey"
+    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#bbbbbb"
     />
 
     <GridView
