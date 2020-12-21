@@ -14,9 +14,8 @@ android:id="@+id/eventDate" android:spinnersShown="true" android:calendarViewSho
 
     <TimePicker android:layout_width="match_parent" android:layout_height="wrap_content"
     android:id="@+id/eventTime" android:timePickerMode="spinner" />
-
     <Button android:layout_width="match_parent" android:layout_height="wrap_content"
-    android:text="Save" android:background="#bbbbbb" android:id="@+id/btnSave"/>
+    android:text="Save" android:background="@color/colorGrey" android:id="@+id/btnSave"/>
 
 
 

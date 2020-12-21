@@ -15,14 +15,13 @@
 <View android:layout_width="match_parent" android:layout_height="1dp"
       android:layout_below="@+id/custom"
       android:id="@+id/seprator"
-android:background="#bbbbbb"/>
-
+android:background="@color/colorGrey"/>
     <androidx.recyclerview.widget.RecyclerView android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
     android:id="@+id/events_Recycler"
                                             android:layout_below="@+id/seprator"
                                             xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+    app:layoutManager="android.support.v7.widget.LinearLayoutManager"
     android:orientation="vertical"/>
     <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
     android:id="@+id/eventsInfo" android:visibility="gone" android:layout_centerInParent="true"
@@ -32,6 +31,5 @@ android:background="#bbbbbb"/>
     android:layout_below="@+id/events_Recycler"
             android:id="@+id/btnAdd"
     android:text="ADD"/>
-
 
 </RelativeLayout>
