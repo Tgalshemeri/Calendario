@@ -1,4 +1,4 @@
-<img width="450" alt="portfolio_view" src="https://github.com/Tgalshemeri/Calendario/blob/master/app/src/main/res/drawable/device-2019-05-10-113907.png">
+<img width="450" alt="portfolio_view" src="https://github.com/Tgalshemeri/Calendario/blob/master/app/src/main/res/drawable/device-2020-12-21-101108.png">
 
 <strong>Calendario</strong>
 
@@ -15,7 +15,7 @@ Add it in your root build.gradle:
 Step 2. Add the dependency
 
 	dependencies {
-	        implementation 'com.github.Tgalshemeri:Calendario:1.1'
+	        implementation 'com.github.Tgalshemeri:Calendario:1.4'
 	}
   
   Add it to the layout: 
