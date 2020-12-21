@@ -13,11 +13,11 @@ import kotlin.collections.ArrayList
 class Calendario(context: Context?, attrs: AttributeSet? ) : FrameLayout(context, attrs)  {
 
     private lateinit var header: LinearLayout
-    private  lateinit var btnPrev: Button
+    private  lateinit var btnPrev: ImageButton
     private  lateinit var gridView: GridView
     private lateinit var daysGrid: GridView
     private  lateinit var textDate: TextView
-    private  lateinit var btnNext : Button
+    private  lateinit var btnNext : ImageButton
     private var newColor:String? = null
     private  var textSize:Int? = null
     private  var textFont: Typeface? = null
