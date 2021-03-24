@@ -27,3 +27,5 @@ Step 2. Add the dependency
   
 
 <a href="https://github.com/Tgalshemeri/Calendario/wiki/Documention">Documention</a>
+
+You can support by buying me a coffee [Support Me](https://www.buymeacoffee.com/talsh)
